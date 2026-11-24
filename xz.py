@@ -35,7 +35,7 @@ def open_fileeditor(path):
         print("/save - save")
         for loadvisual in fileaslist:
             print(loadvisual.rstrip("\r\n"))
-        input_filed = input(">")
+        input_filed = input("")
         if input_filed != "/save":
             fileaslist.append(input_filed + "\n")
 
