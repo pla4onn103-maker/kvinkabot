@@ -11,6 +11,10 @@ def getfile(path):
     with open(path, "r", encoding="utf-8") as file:
         return file.read()
 
+def playfile(path):
+    with open(path, "r", encoding="utf-8") as file:
+        exec(file.read())
+
 
 def delete_file(path):
     os.remove(path)
@@ -20,6 +24,11 @@ def delete_file(path):
 def getfile_aslist(path):
     with open(path, "r", encoding="utf-8") as file:
         return file.readlines()
+
+def moverename_file(path, new_path):
+      os.rename(path, new_path)
+      print("file renamed!")
+      return "file moved!"
 
 
 def open_fileeditor(path):
@@ -33,10 +42,14 @@ def open_fileeditor(path):
         os.system("cls" if os.name == "nt" else "clear")
         print("███████████████████████████████████████████████████████FILE EDITOR█████████████████████████████████████████████████████")
         print("/save - save")
+        print("/remove - delete last string")
         for loadvisual in fileaslist:
             print(loadvisual.rstrip("\r\n"))
         input_filed = input("")
-        if input_filed != "/save":
+        if input_filed == "/remove":
+            if fileaslist:
+                fileaslist.pop()
+        elif input_filed != "/save":
             fileaslist.append(input_filed + "\n")
 
     with open(path, "w", encoding="utf-8") as file:
