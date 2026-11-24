@@ -31,16 +31,11 @@ def open_fileeditor(path):
 
     while input_filed != "/save":
         os.system("cls" if os.name == "nt" else "clear")
-        print("█" * 40 + " FILE EDITOR " + "█" * 40)
-        print("/save - сохранить и выйти")
-        print("-" * 93)
-
-        for idx, line in enumerate(fileaslist, start=1):
-            print(f"{idx}: {line.rstrip(chr(10) + chr(13))}")
-
-        print("-" * 93)
-        input_filed = input("> ")
-
+        print("███████████████████████████████████████████████████████FILE EDITOR█████████████████████████████████████████████████████")
+        print("/save - save")
+        for loadvisual in fileaslist:
+            print(loadvisual.rstrip("\r\n"))
+        input_filed = input(">")
         if input_filed != "/save":
             fileaslist.append(input_filed + "\n")
 
